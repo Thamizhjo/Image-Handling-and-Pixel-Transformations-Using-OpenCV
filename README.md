@@ -31,44 +31,57 @@ Display the original, lower contrast, and higher contrast images.
 Split the image (boy.jpg) into B, G, R components and display the channels
 
 ## Program Developed By:
-- **Name:** [Your Name Here]  
-- **Register Number:** [Your Register Number Here]
+- **Name:** [Thamizh kumaran S]  
+- **Register Number:** [212223240166]
 
   ### Ex. No. 01
 
 #### 1. Read the image ('Eagle_in_Flight.jpg') using OpenCV imread() as a grayscale image.
-```python
-# YOUR CODE HERE
+```
+import cv2
+import matplotlib.pyplot as plt
+img = cv2.imread("![Eagle_in_Flight](https://github.com/user-attachments/assets/7ae93172-77cd-4f8b-838b-c78e6f5d0ddb)")
+img_rgb = cv2.cvtColor(img, cv2.COLOR_BGR2RGB)
+img_gray = cv2.cvtColor(img_rgb, cv2.COLOR_RGB2GRAY)
 ```
 
 #### 2. Print the image width, height & Channel.
-```python
-# YOUR CODE HERE
+```
+img_gray.shape
 ```
 
 #### 3. Display the image using matplotlib imshow().
-```python
-# YOUR CODE HERE
+```
+plt.imshow(img_gray)
+plt.show()
 ```
 
 #### 4. Save the image as a PNG file using OpenCV imwrite().
-```python
-# YOUR CODE HERE
+```
+cv2.imwrite("output.png", img)
 ```
 
 #### 5. Read the saved image above as a color image using cv2.cvtColor().
-```python
-# YOUR CODE HERE
+```
+img_rgb = cv2.cvtColor(img, cv2.COLOR_BGR2RGB)
 ```
 
 #### 6. Display the Colour image using matplotlib imshow() & Print the image width, height & channel.
-```python
-# YOUR CODE HERE
+```
+plt.imshow(img_rgb)
+plt.title("Color Image")
+plt.show()
+img_rgb.shape
 ```
 
 #### 7. Crop the image to extract any specific (Eagle alone) object from the image.
-```python
-# YOUR CODE HERE
+```
+cr = img_rgb[20:410, 200:550] 
+plt.imshow(cr)
+plt.title("Cropped Region")
+plt.axis("off")
+plt.show()
+cr.shape
 ```
 
 #### 8. Resize the image up by a factor of 2x.
